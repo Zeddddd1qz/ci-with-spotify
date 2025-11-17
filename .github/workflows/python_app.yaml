@@ -63,10 +63,10 @@ jobs:
     # TODO: Replace the run block to use our preferred linter
     - name: Lint code
       run: |
-        uv run flake8 .
+        uv run ruff check .
 
 
     # TODO: Add steps to run formatting steps and type checking
     - name: Format code
       run: |
-        uv run black .
+        uv run black
