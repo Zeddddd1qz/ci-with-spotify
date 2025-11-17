@@ -45,16 +45,28 @@ jobs:
 
     # This step installs dependencies
     # TODO: Replace the run block, using `uv` to sync the environment
+    - name: Install dependencies
+      run: |
+        uv sync
 
       
 
     # This step runs unit tests with pytest
     # TODO: Update the run block. Use: uv run -m pytest
     # (we need -m so that our tests can find our notebook code)
+    - name: Run tests
+      run: |
+        uv run -m pytest
 
 
     # This step runs the linter against the codebase
     # TODO: Replace the run block to use our preferred linter
+    - name: Lint code
+      run: |
+        uv run flake8 .
 
 
     # TODO: Add steps to run formatting steps and type checking
+    - name: Format code
+      run: |
+        uv run black .
