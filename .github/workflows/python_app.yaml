@@ -61,12 +61,15 @@ jobs:
 
     # This step runs the linter against the codebase
     # TODO: Replace the run block to use our preferred linter
-    - name: Lint code
+    - name: Lint with ruff
       run: |
-        uv run ruff check .
+        uvx ruff check
 
 
     # TODO: Add steps to run formatting steps and type checking
-    - name: Format code
+    - name: Format with ruff
       run: |
-        uv run black
+        uvx ruff format
+    - name: Type check with ty
+      run: |
+        uvx ty check  
